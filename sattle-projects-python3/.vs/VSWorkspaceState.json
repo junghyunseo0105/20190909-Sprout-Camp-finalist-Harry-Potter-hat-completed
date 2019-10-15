@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\alarm",
+    "\\doit",
+    "\\fileIO",
+    "\\inputData",
+    "\\onCommand",
+    "\\sentenceLikelihood"
+  ],
+  "SelectedNode": "\\alarm\\alarm.py",
+  "PreviewInSolutionExplorer": false
+}
