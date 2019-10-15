@@ -6,8 +6,9 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVOMIN  150 // this is the 'minimum' pulse length count (out of 4096)
 #define SERVOMAX  600 // this is the 'maximum' pulse length count (out of 4096)
 
-static float servo_angle[7] = { 180, 180, 0, 180, 180, 180, 0 };
-
+float reset_angle[7] = { 0, 180, 160, 180, 180, 180, 0 };
+float servo_angle[7] = { 0 };
+                        // 0   1   2   3    4    5   6
 int min_angle[7] = { 0, 150, 0, 150, 0, 150, 0};
 int max_angle[7] = {180, 180, 180, 180, 180, 180, 180,};
 
@@ -42,7 +43,7 @@ void setAngle(int pin, float angle) {
   servo_angle[pin] = angle;
   angle = map(servo_angle[pin], 0, 180, 150, 600);
   pwm.setPWM(pin, 0, angle);
-
+  
   //Serial.print("setAngle ");Serial.print(pin);Serial.print(" ");Serial.print(servo_angle[pin]);Serial.println();
 }
 
@@ -95,6 +96,7 @@ void servoSetting() {
   delay(10);
   
   for(int i = 0; i < 7; i++) {
-    setAngle(i, servo_angle[i]);  
+    setAngle(i, reset_angle[i]);
+    servo_angle[i] = reset_angle[i];
   }
 }

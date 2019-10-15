@@ -13,3 +13,15 @@ def getTilt():
     num = re.findall("\d+", text)[0]
     
     return num
+
+def setStop():
+    ser.write('stop\n'.encode())
+
+def setSnoring():
+    ser.write('snoring\n'.encode())
+
+def setSurprise():
+    ser.write('surprise\n'.encode())
+
+def setTalk():
+    ser.write('talk\n'.encode())

@@ -1,11 +1,10 @@
-#include "servoPWM.h"
-
 struct Servo1 {
   int pin = -1;
   int angle;
   int duration;
   int systime;
   boolean flag = false;
+  int a = 0;
 };
 
 Servo1 servo[7];
@@ -19,7 +18,7 @@ void reset_servo(int i, int angle, int pin) {
 
 }
 
-boolean set_smoothServo(int args, ...) {
+int set_smoothServo(int args, ...) {
   int count = 0;
 
   va_list ap;
@@ -39,12 +38,16 @@ boolean set_smoothServo(int args, ...) {
       for (int l = 0; l < 3; l++) {
         int num = va_arg(ap, int);
 
-        if (l == 0)
+        if (l == 0) {
           servo[i].pin = num;
-        else if (l == 1)
+          servo[i].a = servo_angle[num];
+        }
+        else if (l == 1) {
           servo[i].angle = num;
-        else if (l == 2)
+        }
+        else if (l == 2) {
           servo[i].duration = num;
+        }
 
         //Serial.print(num);
         //Serial.print(" ");
@@ -89,12 +92,34 @@ boolean set_smoothServo(int args, ...) {
         }
       }
       //-----------------------------------------------------------
-      int num = save_angle;
-      num = map(num, 0, 180, 150, 600);
-      pwm.setPWM(pin, 0, num);
-      //Serial.print(pin);
-      //Serial.print(" ");
-      //Serial.println(save_angle);
+      if (increase_angle > 0) {
+        int num = save_angle;
+        num = map(num, 0, 180, 150, 600);
+        //Serial.print(servo[i].a);
+        //Serial.print(" ");
+        //Serial.println(save_angle);
+        if ((servo[i].a)  < save_angle) {
+          servo[i].a = save_angle;
+          pwm.setPWM(pin, 0, num);
+          //Serial.print(pin);
+          //Serial.print(" ");
+          //Serial.println(save_angle);
+        }
+      } else {
+        int num = save_angle;
+        num = map(num, 0, 180, 150, 600);
+        //Serial.print(servo[i].a);
+        //Serial.print(" ");
+        //Serial.println(save_angle);
+        if ((servo[i].a) > save_angle) {
+          servo[i].a = save_angle;
+          pwm.setPWM(pin, 0, num);
+          //Serial.print(pin);
+          //Serial.print(" ");
+          //Serial.println(save_angle);
+        }
+      }
+
     }
 
 

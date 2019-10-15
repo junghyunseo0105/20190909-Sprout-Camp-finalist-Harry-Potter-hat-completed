@@ -1,5 +1,13 @@
 #include "dht11Handler.h"
 #include "tiltHandler.h"
+#include "servoPWM.h"
+#include "servoPWM1.h"
+
+#include "motion_snoring.h"
+#include "motion_stop.h"
+#include "motion_surprise.h"
+#include "motion_talk.h"
+
 #include "motion.h"
 
 void setup() {
@@ -36,6 +44,9 @@ void loop() {
     }
     else if(inString.equals("stop")) {  //동작멈추기 (허리펴기)
       motion_num = 3;
+    }
+    else if(inString.equals("talk")) {  //말하기
+      motion_num = 4;
     }
     else {
       Serial.println("-2");
