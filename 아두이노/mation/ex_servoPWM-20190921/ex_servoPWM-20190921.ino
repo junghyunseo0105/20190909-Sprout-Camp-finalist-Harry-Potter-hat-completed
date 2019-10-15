@@ -1,4 +1,9 @@
+#include "servoPWM.h"
 #include "servoPWM1.h"
+
+#include "motion_stop.h"
+#include "motion_snoring.h"
+#include "motion_talk.h"
 
 void setup() {
   Serial.begin(9600);
@@ -10,17 +15,9 @@ void setup() {
 }
 
 void loop() {
-  set_smoothServo(3, 1, 145, 1500, 3, 145, 1500, 5, 145, 1500);
-  set_smoothServo(3, 1, 160, 1500, 3, 160, 1500, 5, 160, 1500);
+  //motion_stop();
+  //motion_snoring();
+  motion_talk();
+  //setAngle(2, 160);
   
-
-  /* 화들짝
-  set_smoothServo(3, 1, 180, 0, 
-                    3, 180, 0, 
-                    5, 180, 0);
-                    */
-/*
-  set_smoothServo(2, 0, 160, 1000, 
-                    2, 20, 1000);
-         */           
 }
