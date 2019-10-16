@@ -5,7 +5,11 @@ from onCommand.onCommand import *
 from onCommand.onCommandHandler import *
 from serialHandler.serialHandler import *
 from soundHandler.soundHandler import *
-from ai-makers-kit.python3.ex2_getVoice2Text import *
+
+import threading
+import sys
+sys.path.append('/home/pi/ai-makers-kit/python3')
+from ex2_getVoice2Text import *
 
 def sum():
     while(True):
