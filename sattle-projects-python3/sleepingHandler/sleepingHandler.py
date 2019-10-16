@@ -5,7 +5,7 @@ from onCommand.onCommand import *
 from onCommand.onCommandHandler import *
 from serialHandler.serialHandler import *
 from soundHandler.soundHandler import *
-from getVoiceText.ex2_getVoice2Text import *
+from ai-makers-kit.python3.ex2_getVoice2Text import *
 
 def sum():
     while(True):
