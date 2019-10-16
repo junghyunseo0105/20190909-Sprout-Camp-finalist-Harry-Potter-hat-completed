@@ -3,7 +3,7 @@ from mutagen.mp3 import MP3
 import time
 
 mixer.init()
-path = '/home/pi/sattle-projects-python3/audioFile/나중에넌아주크게될텐데.mp3'
+path = '/home/pi/sattle-projects-python3/soundHandler/audioFile/코소리.mp3'
 mixer.music.load(path)
 audio = MP3(path)
 length = audio.info.length
