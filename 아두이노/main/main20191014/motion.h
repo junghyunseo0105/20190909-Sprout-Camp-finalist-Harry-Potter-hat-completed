@@ -8,4 +8,7 @@ void motion(int i) {
   } else if(i == 4) {  //말하기
     motion_talk();
   }
+  else if(i == 5) {  //말하기
+    motion_sing();
+  }
 }

@@ -11,3 +11,9 @@ def readSentence():
     f.close()
 
     return sentence
+
+def writeSentence(data):
+    f = open("doit/timeList.txt", 'a')
+    f.write(data)
+    f.close()
+    

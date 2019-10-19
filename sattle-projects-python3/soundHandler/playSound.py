@@ -36,12 +36,23 @@ def play(path, num):
             time_play = total
             #print(int(time_play))
 
-        elif num == 3: #하아....
+        elif num == 3: #브금
             path_ = path
             music_time = get_play(path)
             total = music_time + now
             time_play = total
             #print(int(time_play))
+        elif num == 4: #퀸노래
+            path_ = path
+            music_time = get_play(path)
+            total = music_time + now
+            time_play = total
+            #print(int(time_play))
+
+def play_delay(path):
+    delay_time = get_play(path)
+    print(delay_time, '초 동안 재생')
+    time.sleep(delay_time)
             
 def getTime():
     now = datetime.now()

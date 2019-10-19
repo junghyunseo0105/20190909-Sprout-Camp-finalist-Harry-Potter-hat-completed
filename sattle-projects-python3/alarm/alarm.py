@@ -1,22 +1,17 @@
-from inputData.inputData import *
+from fileIO.fileIO import *
+import re
 
-def alarm():
-    check = False
-    text = inputData('시간을 입력하십시오. (예 > 오전 1시 48분)\n>')
-    try:
-        array = text.split(' ')
+def alarm(text):
+    numbers = getnumberArray(text)
 
-        print(array)
+    if len(numbers) < 2:
+        print('[alarm] error 시간을 입력해주세요.')
+        return False
     
-        time = array[0]
-        hour = array[1][:-1]
-        min = array[2][:-1]
-        
-        check = True
-    except:
-        pass
-    #print(time)
-    #print(hour)
-    #print(min)
+    writeSentence(numbers) 
     
-    return check
+def get_numberArray(text):
+    tmp_string = str(text)
+    numbers = re.findall("\d+", tmp_string)
+    #print(numbers)
+    return numbers

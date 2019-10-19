@@ -6,7 +6,7 @@ def loadDoc_nouns(mydoclist):
     doc_nouns_list = []
 
     for doc in mydoclist:
-        nouns = mecab.nouns(doc)
+        nouns = mecab.morphs(doc)
         doc_nouns = ''
 
         for noun in nouns:

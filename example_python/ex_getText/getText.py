@@ -1,5 +1,5 @@
 from ex2_getVoice2Text import *
 
-text = getVoice2Text()
-
-print('asdf',text)
+def getText():
+    text = getVoice2Text()
+    return text

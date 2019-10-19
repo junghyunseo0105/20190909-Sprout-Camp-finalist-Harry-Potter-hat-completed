@@ -25,3 +25,6 @@ def setSurprise():
 
 def setTalk():
     ser.write('talk\n'.encode())
+
+def setSing():
+    ser.write('sing\n'.encode())

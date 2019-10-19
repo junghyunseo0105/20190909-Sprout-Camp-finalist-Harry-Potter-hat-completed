@@ -7,6 +7,7 @@
 #include "motion_stop.h"
 #include "motion_surprise.h"
 #include "motion_talk.h"
+#include "motion_sing.h"
 
 #include "motion.h"
 
@@ -47,6 +48,9 @@ void loop() {
     }
     else if(inString.equals("talk")) {  //말하기
       motion_num = 4;
+    }
+    else if(inString.equals("sing")) { //노래부르기
+      motion_num = 5;
     }
     else {
       Serial.println("-2");
